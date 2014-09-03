@@ -1,0 +1,21 @@
+<root>
+	<workroot>D:\code\java\cloudgrid</workroot>
+	<classroot>bin</classroot>
+	<srcroot>src</srcroot>
+	<connector host="10.68.173.135" infoport="9213" objport="20184" rltport="51020" httpport="8686"></connector>
+	<initialize host="localhost" infoport="9213" objport="20184" rltport="51020" httpport="8686">
+		<maxport>10</maxport>
+	</initialize>
+	<!-- 
+		<executor>.queue_num >= <buffer>.exec_num
+		<executor>.queue_proc_num >= <buffer>.proc_num
+	 -->
+	<service>
+		<check maxnum="1"></check>
+		<info maxnum="2" queue_num="2"></info>
+		<executor maxnum="4" queue_num="4" queue_proc_num="3" result_num="6" result_queue_num="5"></executor>
+		<http maxnum="4"></http>
+		<buffer exec_num="4" proc_num="3"></buffer> 
+		<data_package_size>4096</data_package_size>
+	</service>
+</root>
